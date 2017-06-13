@@ -1,0 +1,13 @@
+mininet:
+  image: alshabib/mininet
+  container_name: mininet
+  privileged: true
+  stdin_open: true
+  tty: true
+  environment:
+    MININET_SCRIPT: /topo.py
+    MININET_SCRIPT_OPTIONS: 172.17.0.2:6653
+  cap_add:
+    - ALL
+  volumes:
+    - /lib/modules:/lib/modules

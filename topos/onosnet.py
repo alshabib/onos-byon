@@ -37,7 +37,8 @@ class ONOSMininet( Mininet ):
         info ( '*** Adding controllers\n' )
         ctrl_count = 0
         for controllerIP in controllers:
-            self.addController( 'c%d' % ctrl_count, RemoteController, ip=controllerIP )
+            ip, port = controllerIP.split(":")
+            self.addController( 'c%d' % ctrl_count, RemoteController, ip=controllerIP, port=port )
             info( '   c%d (%s)\n' % ( ctrl_count, controllerIP ) )
             ctrl_count = ctrl_count + 1
 
